@@ -1,7 +1,7 @@
 # MySomm Privacy Policy
 
 **Effective Date:** April 19, 2026
-**Last Updated:** April 19, 2026
+**Last Updated:** May 2, 2026
 
 MySomm ("we," "our," or "the app") is an AI-powered sommelier app that pairs wine and cocktails with your meals. This Privacy Policy explains what information we handle when you use MySomm, how it is used, and who it is shared with.
 
@@ -44,9 +44,15 @@ Our backend uses your device's IP address temporarily to enforce monthly rate li
 
 Your device stores — **locally on your device only** — the number of pairings you have generated in the current month. This is used to show you your remaining free pairings and is never transmitted to us.
 
-### 4. Diagnostic Logs
+### 4. Diagnostic Logs and Error Reporting
 
-Our backend may log server-side errors (e.g. timeouts, failed database queries) to help us keep the service running. These logs do not include the text of your meal request or any personally identifying information about you.
+Our backend logs server-side errors (e.g. timeouts, failed database queries, unhandled exceptions) to help us keep the service running. To assist with diagnosing crashes and performance issues, error reports are also sent to **Sentry**, a third-party error-monitoring service.
+
+- **What:** the type of error, the URL path that triggered it, the stack trace, and basic system information (server environment, app version).
+- **What we exclude:** the text of your meal request, the contents of any photo you submit, your device or user identifiers, and any other personally identifying information. These fields are stripped before the report is sent to Sentry.
+- **Why:** to identify and fix bugs and outages quickly.
+- **Retained:** error reports are retained by Sentry for 30 days and then automatically deleted.
+- **Shared with:** Sentry (sentry.io). Sentry's privacy policy is at https://sentry.io/privacy/.
 
 ## What We Do NOT Collect
 
@@ -71,6 +77,7 @@ MySomm uses the following service providers to operate the app:
 |----------|---------|----------------|
 | **Anthropic** | AI pairing engine | Meal text and images you submit |
 | **Railway** | Backend hosting | Requests in transit; IP for rate limit |
+| **Sentry** | Backend error monitoring | Error type, stack traces, server-side metadata. Excludes meal requests, photos, identifiers. |
 | **Apple / Google** | App distribution | Install metrics provided by the platform |
 
 We do not currently use third-party analytics, advertising SDKs, or tracking frameworks.
